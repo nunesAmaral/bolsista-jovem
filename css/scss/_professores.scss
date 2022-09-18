@@ -1,0 +1,90 @@
+#containerProfessor {
+  display: flex;
+  max-width: 1180px;
+  margin: 80px auto 0 auto;
+
+  .profLeft {
+    margin-right: 36px;
+    border-right: 3px solid black;
+    padding-right: 100px;
+
+    .profTitle {
+      font-size: 64px;
+      text-transform: uppercase;
+      margin-bottom: 35px;
+    }
+
+    .profInfo {
+      display: flex;
+      border-bottom: 3px solid black;
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+
+      .profNome {
+        font-weight: 400;
+        font-size: 20px;
+        margin-right: 100px;
+      }
+
+      .profMateria {
+        font-weight: 400;
+        font-size: 20px;
+        margin-right: 20px;
+      }
+
+      .profSeta {
+        max-height: 20px;
+      }
+    }
+  }
+
+  .profRight {
+    .profImagem {
+      box-shadow: 16px 16px 0px 1px #50b57b;
+      border-radius: 4px;
+      margin-bottom: 32px;
+      max-height: 300px;
+    }
+
+    .profSubtitulo {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 20px;
+    }
+
+    .profFormacao {
+      margin-top: 60px;
+
+      .formacaoTitulo {
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 20px;
+        margin-bottom: 24px;
+      }
+
+      .descricaoFormacao {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 20px;
+        margin-bottom: 8px;
+      }
+    }
+
+    .profContato {
+      margin-top: 32px;
+
+      .contatoTitulo {
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 20px;
+        margin-bottom: 24px;
+      }
+
+      .descricaoContato {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 20px;
+      }
+    }
+  }
+}

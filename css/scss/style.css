@@ -1,0 +1,496 @@
+@charset "UTF-8";
+/*
+Ao criar uma nova página, sempre que for necessário criar uma regra CSS não reutilizável exclusiva da página, criar um arquivo SCSS com o pré-fixo "_" e importar nesse arquivo. Nomear o arquivo com o megul
+*/
+.descricao-formandos {
+  max-width: 720px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.h3 {
+  color: #363A37;
+  text-align: center;
+  margin-top: 48px;
+}
+
+.seta {
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+#formandos-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: scroll;
+}
+
+#formandos-container::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+#formandos-container .img-aluno {
+  min-width: 280px;
+  border-radius: 190px;
+  overflow: hidden;
+  margin: 0 24px;
+}
+
+#formandos-container .img-aluno:nth-child(odd) {
+  margin-top: 48px;
+}
+
+#formandos-container .img-aluno:nth-child(odd) img {
+  height: 100%;
+}
+
+#formandos-container .img-aluno img {
+  width: 280px;
+  height: 480px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.margin-top {
+  margin-top: 48px;
+}
+
+#filo-container {
+  margin: 128px auto 0 auto;
+  padding-bottom: 4rem;
+  max-width: 56rem;
+}
+
+#filo-container .h2::before {
+  content: url("../../assets/filo-image.png");
+  position: relative;
+  top: 4rem;
+  left: -2rem;
+}
+
+#filo-container h2 {
+  margin-left: -4.8rem;
+}
+
+#filo-container p {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: justify;
+  line-height: 2rem;
+  font-size: 1.25rem;
+}
+
+#filo-container .filo-text h2 {
+  margin-left: -186px;
+}
+
+.h2 {
+  max-width: 540px;
+  text-align: center;
+  margin: 96px auto 0 auto;
+}
+
+.direcao-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.direcao-block .dirigente-1 img,
+.direcao-block .dirigente-2 img,
+.direcao-block .dirigente-3 img {
+  border-radius: 192px 192px 4px 4px;
+  background: -webkit-gradient(linear, left bottom, left top, from(#000000), color-stop(8.84%, rgba(0, 0, 0, 0.94)), color-stop(40.87%, rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0)));
+  background: linear-gradient(360deg, #000000 0%, rgba(0, 0, 0, 0.94) 8.84%, rgba(0, 0, 0, 0.4) 40.87%, rgba(0, 0, 0, 0) 100%);
+  height: 480px;
+  width: 384px;
+}
+
+.direcao-block .dirigente-1 .dirigente-2,
+.direcao-block .dirigente-2 .dirigente-2,
+.direcao-block .dirigente-3 .dirigente-2 {
+  margin-top: -1.5rem;
+}
+
+.direcao-block .dirigente-1 [class$="__funcao"],
+.direcao-block .dirigente-2 [class$="__funcao"],
+.direcao-block .dirigente-3 [class$="__funcao"] {
+  text-align: center;
+  position: relative;
+  color: #fff;
+  top: -50px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+* {
+  border: none;
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.mask {
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.h1,
+.h2,
+.h3,
+.h4 {
+  font-family: 'Poppins';
+  text-transform: uppercase;
+}
+
+.h1 {
+  margin-top: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 4.5rem;
+  line-height: 115%;
+  max-width: 580px;
+}
+
+.h2 {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 120%;
+}
+
+.h3 {
+  font-size: 36px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: url("../../assets/background-assets.png");
+}
+
+#container {
+  margin: 0 auto;
+  max-width: 1180px;
+}
+
+input.search {
+  background-color: #d9d9d9;
+  border-radius: 1.5rem;
+  height: 3rem;
+  padding: 0.8rem 1.5rem;
+}
+
+span.input-select > * {
+  display: block;
+}
+
+span.input-select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #50B57B;
+  padding-left: 1rem;
+  height: 70px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #102419;
+  width: 160px;
+  border-radius: 1rem;
+  border: 3px solid #296743;
+  -webkit-box-shadow: 6px 6px 0 #2B2929;
+          box-shadow: 6px 6px 0 #2B2929;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+
+span.input-select span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #E8F4ED;
+  height: 64px;
+  padding: 0 1rem;
+  border-left: 3px solid #296743;
+  border-radius: 0rem 1rem 1rem 0;
+}
+
+.selector-area {
+  position: relative;
+}
+
+#btn-options {
+  z-index: 5;
+  background-color: #DE6632;
+  border: 3px solid #612C16;
+  border-radius: 16px;
+  position: absolute;
+  width: 220px;
+  top: 96px;
+  left: 32px;
+}
+
+#btn-options ul li {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2C140A;
+  border-bottom: 3px solid #612C16;
+  padding-bottom: 8px;
+  padding-top: 16px;
+  margin: 0 24px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#btn-options ul li:last-of-type {
+  border-bottom: none;
+}
+
+#btn-options ul li:hover {
+  color: #612C16;
+}
+
+#btn-options::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -24px;
+  left: 16px;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  border-bottom: 24px solid #DE6632;
+  border-right: 24px solid transparent;
+  border-left: 24px solid transparent;
+}
+
+.hide {
+  display: none;
+}
+
+#mask-1 {
+  -webkit-clip-path: url(#svg-mask-1);
+          clip-path: url(#svg-mask-1);
+  position: absolute;
+  left: 550px;
+  top: 260px;
+}
+
+#mask-2 {
+  -webkit-clip-path: url(#svg-mask-2);
+          clip-path: url(#svg-mask-2);
+  position: absolute;
+  left: 800px;
+  top: 60px;
+}
+
+#mask-3 {
+  -webkit-clip-path: url(#svg-mask-2);
+          clip-path: url(#svg-mask-2);
+  position: absolute;
+  left: 800px;
+  top: 480px;
+}
+
+#mask-4 {
+  -webkit-clip-path: url(#svg-mask-1);
+          clip-path: url(#svg-mask-1);
+  position: absolute;
+  left: 1060px;
+  top: 260px;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1.5rem;
+  border-bottom: 3px solid #191d1b;
+  padding-bottom: 1rem;
+}
+
+header .logo {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+header .logo span {
+  color: #50b57b;
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header nav li {
+  display: inline-block;
+}
+
+header nav li a {
+  color: #161515;
+  font-weight: 400;
+  /*TODO: alterar peso para Medium, baixar fonte de peso medium no google fonts*/
+  padding: 0 1rem;
+}
+
+header nav li a:hover {
+  text-decoration: underline;
+}
+
+header nav li:last-of-type a {
+  padding-right: 0 !important;
+}
+
+#seccondary-nav {
+  display: inline-block;
+  background-color: #111312;
+  padding: 1.5rem;
+  border-radius: 2rem;
+  margin-top: 3rem;
+}
+
+#seccondary-nav ul li {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+#seccondary-nav ul li a {
+  color: #fff;
+}
+
+#containerProfessor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1400px;
+  margin: 80px auto 0 auto;
+}
+
+#containerProfessor .profLeft {
+  margin-right: 36px;
+  border-right: 3px solid black;
+  padding-right: 100px;
+}
+
+#containerProfessor .profLeft .profTitle {
+  font-size: 64px;
+  text-transform: uppercase;
+  margin-bottom: 35px;
+}
+
+#containerProfessor .profLeft .profInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 3px solid black;
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+}
+
+#containerProfessor .profLeft .profInfo .profNome {
+  font-weight: 400;
+  font-size: 20px;
+  margin-right: 100px;
+}
+
+#containerProfessor .profLeft .profInfo .profMateria {
+  font-weight: 400;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+#containerProfessor .profLeft .profInfo .profSeta {
+  max-height: 20px;
+}
+
+#containerProfessor .profRight .profImagem {
+  -webkit-box-shadow: 16px 16px 0px 1px #50B57B;
+          box-shadow: 16px 16px 0px 1px #50B57B;
+  border-radius: 4px;
+  margin-bottom: 32px;
+  max-height: 300px;
+}
+
+#containerProfessor .profRight .profSubtitulo {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+#containerProfessor .profRight .profFormacao {
+  margin-top: 60px;
+}
+
+#containerProfessor .profRight .profFormacao .formacaoTitulo {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+  margin-bottom: 24px;
+}
+
+#containerProfessor .profRight .profFormacao .descricaoFormacao {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+
+#containerProfessor .profRight .profContato {
+  margin-top: 32px;
+}
+
+#containerProfessor .profRight .profContato .contatoTitulo {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+  margin-bottom: 24px;
+}
+
+#containerProfessor .profRight .profContato .descricaoContato {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+}
+/*# sourceMappingURL=style.css.map */

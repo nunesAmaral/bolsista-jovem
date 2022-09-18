@@ -1,0 +1,46 @@
+.descricao-formandos {
+  max-width: 720px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.h3 {
+  color: #363A37;
+  text-align: center;
+  margin-top: 48px;
+}
+
+.seta {
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+#formandos-container {
+  display: flex;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  .img-aluno {
+    min-width: 280px;
+    border-radius: 190px;
+    overflow: hidden;
+    margin: 0 24px;
+    &:nth-child(odd){
+      margin-top: 48px;
+      img {
+        height: 100%;
+      }
+    }
+    img {
+      width: 280px;
+      height: 480px;
+      object-fit: cover;
+    }
+  }
+}
+
+.margin-top {
+  margin-top: 48px;
+}

@@ -1,0 +1,36 @@
+#filo-container {
+  margin: 128px auto 0 auto;
+  padding-bottom: 4rem;
+  max-width: 56rem;
+
+  .h2::before {
+    content: url('../../assets/filo-image.png');
+    position: relative;
+    top: 4rem;
+    left: -2rem;
+  }
+
+  h2 {
+    margin-left: -4.8rem;
+  }
+
+  p {
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    line-height: 2rem;
+    font-size: 1.25rem;
+  }
+
+  .image-filo {
+    background-image: url(../assets/filo-image.png);
+  }
+
+  .filo-text h2 {
+    margin-left: -186px;
+  }
+
+  .hide {
+    display: none;
+  }
+}

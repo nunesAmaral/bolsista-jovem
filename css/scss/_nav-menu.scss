@@ -1,0 +1,14 @@
+#seccondary-nav {
+  display: inline-block;
+  background-color: #111312;
+  padding: 1.5rem;
+  border-radius: 2rem;
+  margin-top: 3rem;
+  ul li {
+    display: inline-block;
+    margin-right: 16px;
+    a {
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+/*
+Ao criar uma nova página, sempre que for necessário criar uma regra CSS não reutilizável exclusiva da página, criar um arquivo SCSS com o pré-fixo "_" e importar nesse arquivo. Nomear o arquivo com o megul
+*/
+@import 'formandos';
+@import 'filosofias';
+@import 'direcao';
+@import 'estilos-gerais';
+@import 'header';
+@import 'nav-menu';
+@import 'professores'
