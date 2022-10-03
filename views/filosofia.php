@@ -18,17 +18,7 @@
 
   <?php
   require('../php/config.php');
-
-  $lista = [];
-
-  $sql = $pdo->query("SELECT * FROM filosofias");
-
-
-
-  if ($sql->rowCount() > 0) {
-    $lista = $sql->fetchAll(PDO::FETCH_ASSOC);
-  };
-
+  require('../php/getitens.php');
   ?>
 
   <div id="container">
@@ -47,10 +37,10 @@
           <div class="selector-area">
 
             <select class="input-select" name="input-select" id="input-select" onchange="handleChange(this)">
-              <?php foreach ($lista as $ano) : ?>
+              <?php foreach ($filosofia as $ano) : ?>
 
                 <option <?php
-                        if ($ano['ano'] == $lista[count($lista) - 1]['ano']) {
+                        if ($ano['ano'] == $filosofia[count($filosofia) - 1]['ano']) {
                           echo 'selected';
                         }
                         ?> value="<?= $ano['id'] ?>"><?= $ano['ano'] ?></option>
@@ -67,10 +57,10 @@
     <div class="filo-text">
       <h2 class="h2">Filosofia</h2>
       <?php
-      foreach ($lista as $row) :
+      foreach ($filosofia as $row) :
       ?>
         <p list-id="<?= $row['id'] ?>" class="desc-item <?php
-                                                        if ($row['ano'] == $lista[count($lista) - 1]['ano']) {
+                                                        if ($row['ano'] == $filosofia[count($filosofia) - 1]['ano']) {
                                                           echo '';
                                                         } else {
                                                           echo 'hide';

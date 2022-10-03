@@ -67,9 +67,10 @@ input.search {
 }
 
 //BUTTONS
-span.input-select > * {
+span.input-select>* {
   display: block;
 }
+
 span.input-select {
   display: flex;
   justify-content: space-between;
@@ -112,6 +113,7 @@ span.input-select span {
   top: 96px;
   // height: calc(auto + 32px);
   left: 32px;
+
   ul li {
     display: block;
     font-size: 1.5rem;
@@ -123,9 +125,11 @@ span.input-select span {
     margin: 0 24px;
     text-align: center;
     cursor: pointer;
+
     &:last-of-type {
       border-bottom: none;
     }
+
     &:hover {
       color: #612C16;
     }
