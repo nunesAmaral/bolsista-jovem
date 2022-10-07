@@ -15,22 +15,22 @@
 </head>
 
 <body>
-
+    <!-- requisição conexão com o banco e querys principais db -->
     <?php
     require('../../php/config.php');
     require('../../php/getitens.php');
 
     $filosofia = [];
-    $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT); //capturando o id 
+    $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
-    if ($id) { //se o id tiver correto
-        $sql = $pdo->prepare('SELECT * FROM filosofias WHERE id = :id'); //seleciona na tabela onde o campo for id
-        $sql->bindValue('id', $id); //e associa com a variável id
+    if ($id) {
+        $sql = $pdo->prepare('SELECT * FROM filosofias WHERE id = :id');
+        $sql->bindValue('id', $id);
         $sql->execute();
 
-        if ($sql->rowCount() > 0) { // se existir um registro com o id(for maior que 0)
+        if ($sql->rowCount() > 0) {
 
-            $filosofia = $sql->fetch(PDO::FETCH_ASSOC); //associa ele a variável info e grava a linha com o conjunto de resultados dos valores do campo id  
+            $filosofia = $sql->fetch(PDO::FETCH_ASSOC);
         } else {
             header('Location: painel-filosofia.php');
             exit;
@@ -60,6 +60,17 @@
     </div>
     </header>
     <main id="edit-filo-container">
+        <!-- avisos -->
+        <?php
+        if (isset($_SESSION['avisoUser'])) {
+            echo $_SESSION['avisoUser'];
+            $_SESSION['avisoUser'] = "";
+        }
+        if (isset($_SESSION['avisoDados'])) {
+            echo $_SESSION['avisoDados'];
+            $_SESSION['avisoDados'] = "";
+        }
+        ?>
         <form method="POST" action="../../php/gerenciar-filosofia/editar-filosofia.php">
             <input type="hidden" name="id" value="<?= $filosofia['id'] ?>">
             <div class="formCad">

@@ -21,3 +21,4 @@ function handleChange(select) {
   const el = document.querySelector(`p[list-id="${value}"]`)
   el.classList.remove('hide')
 }
+

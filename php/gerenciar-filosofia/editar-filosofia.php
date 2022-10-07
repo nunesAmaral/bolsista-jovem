@@ -1,4 +1,4 @@
-
+    <!-- requisição conexão com o banco e querys principais db -->
     <?php
     require('../config.php');
     require('../getitens.php');
@@ -26,14 +26,13 @@
             header('Location: ../../views/gerenciar-filosofia/painel-filosofia.php');
             exit;
         } else {
-            $_SESSION['avisoUser!'] =  "Algo deu errado";
+            $_SESSION['avisoUser'] =  "Registro não exite";
             header("Location: ../../views/gerenciar-filosofia/editar-filosofia.php");
             exit;
         }
     } else {
-        $_SESSION['aviso-dados'] = "Tipos de dados inseridos incorretamente";
+        $_SESSION['avisoDados'] = "Tipos de dados inseridos incorretamente";
         header("Location: ../../views/gerenciar-filosofia/editar-filosofia.php");
         exit;
     }
     ?>
-

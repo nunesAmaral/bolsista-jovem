@@ -4,6 +4,7 @@
   margin: 80px auto 0 auto;
 
   .profLeft {
+    justify-content: space-between;
     margin-right: 36px;
     border-right: 3px solid black;
     padding-right: 100px;
@@ -12,6 +13,10 @@
       font-size: 64px;
       text-transform: uppercase;
       margin-bottom: 35px;
+    }
+
+    .profInfo.selected {
+      background-color: #50b57b;
     }
 
     .profInfo {
@@ -41,7 +46,7 @@
   .profRight {
     .profImagem {
       box-shadow: 16px 16px 0px 1px #50b57b;
-      border-radius: 4px;
+      border-radius: 16px;
       margin-bottom: 32px;
       max-height: 300px;
     }

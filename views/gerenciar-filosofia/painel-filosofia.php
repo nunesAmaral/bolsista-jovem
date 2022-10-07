@@ -18,6 +18,7 @@
 
 <body>
 
+    <!-- requisição conexão com o banco e querys principais db -->
     <?php
     require('../../php/config.php');
     require('../../php/getitens.php');
@@ -41,6 +42,26 @@
     </div>
     </header>
     <main id="filo-container">
+
+        <!-- avisos  -->
+        <?php
+        if (isset($_SESSION['cadFilosucesso'])) {
+            echo $_SESSION['cadFilosucesso'];
+            $_SESSION['cadFilosucesso'] = "";
+        }
+        if (isset($_SESSION['edFiloSucesso'])) {
+            echo $_SESSION['edFiloSucesso'];
+            $_SESSION['edFiloSucesso'] = "";
+        }
+        if (isset($_SESSION['deleteFilosofia'])) {
+            echo $_SESSION['deleteFilosofia'];
+            $_SESSION['deleteFilosofia'] = "";
+        }
+        if (isset($_SESSION['deleteFilosofiaError'])) {
+            echo $_SESSION['deleteFilosofiaError'];
+            $_SESSION['deleteFilosofiaError'] = "";
+        }
+        ?>
         <table class="table">
             <thead>
                 <tr>

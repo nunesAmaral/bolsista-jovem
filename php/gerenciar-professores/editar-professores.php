@@ -10,6 +10,27 @@
     $email = filter_input(INPUT_POST, 'emailprofessor');
     $status = filter_input(INPUT_POST, 'statusprofessor');
 
+    $filters = array(
+        'formacaoprofessor' => array(
+            'filter' => FILTER_DEFAULT,
+            'flags' => FILTER_REQUIRE_ARRAY
+        ),
+        'localformacao' => array(
+            'filter' => FILTER_DEFAULT,
+            'flags' => FILTER_REQUIRE_ARRAY
+        ),
+        'inicioformacao' => array(
+            'filter' => FILTER_VALIDATE_INT,
+            'flags' => FILTER_REQUIRE_ARRAY
+        ),
+        'fimformacao' => array(
+            'filter' => FILTER_VALIDATE_INT,
+            'flags' => FILTER_REQUIRE_ARRAY
+        )
+    );
+
+    $dadosformacao = filter_input_array(INPUT_POST, $filters);
+
     if ($nome and $formacao and $materia and $email and $status) {
 
         $sql = $pdo->prepare("SELECT * FROM professores WHERE id = :id");
@@ -35,6 +56,20 @@
         }
 
 
+        if (($dadosformacao)) {
+            for ($i = 0; $i < count($dadosformacao['formacaoprofessor']); $i++) {
+                $sql = $pdo->prepare("UPDATE professorformacao SET (anoinicio = :anoinicio, anofim = :anofim, descricao = :descricao, instituicaoformacao= :localf 
+                WHERE iduser = :iduser)");
+                $sql->bindValue(':anoinicio', $dadosformacao['inicioformacao'][$i]);
+                $sql->bindValue(':anofim', $dadosformacao['fimformacao'][$i]);
+                $sql->bindValue(':descricao', $dadosformacao['formacaoprofessor'][$i]);
+                $sql->bindValue(':localf', $dadosformacao['localformacao'][$i]);
+                $sql->bindValue(':iduser', $professorID);
+                $sql->execute();
+            }
+        }
+        exit;
+
         if (isset($_FILES['fotoprofessor'])) {
             $fotoProfessor = $_FILES["fotoprofessor"];
 
@@ -49,24 +84,37 @@
                 header("location: ../../views/gerenciar-professores/editar-professor.php");
             };
 
-
+            $nomeFotoProfessor = $fotoProfessor['name'];
             $diretorio = "../../assets/imagemprofessor/";
             $extensao = strtolower(pathinfo($nomeFotoProfessor, PATHINFO_EXTENSION));
 
             $novoNomeFotoProfessor = uniqid();
 
-            $path = $diretorio . $novoNomeFotoProfessor . "." . $extensao;
+            $path = $novoNomeFotoProfessor . "." . $extensao;
 
             if (in_array($fotoProfessor['type'], array('image/jpeg', 'image/jpg', 'image/png'))) {
                 $mover =  move_uploaded_file($fotoProfessor['tmp_name'], $diretorio . $novoNomeFotoProfessor . "." . $extensao);
 
                 if ($mover) {
-                    $sql = $pdo->prepare("UPDATE professorimagem set professorimagem = :professorimagem where iduser = :iduser");
-                    $sql->bindValue(':professorimagem', $path);
-                    $sql->bindValue(':iduser', $id);
+                    $sql = $pdo->prepare("SELECT * FROM professorimagem WHERE iduser = :id");
+                    $sql->bindValue(':id', $id);
                     $sql->execute();
-                    header('Location: ../../views/gerenciar-professores/painel-professores.php');
-                    exit;
+
+                    if ($sql->rowCount() == 0) {
+                        $sql = $pdo->prepare("INSERT INTO professorimagem (professorimagem, iduser) VALUES (:professorimagem, :iduser)");
+                        $sql->bindValue(':professorimagem', $path);
+                        $sql->bindValue(':iduser', $id);
+                        $sql->execute();
+                        header('Location: ../../views/gerenciar-professores/painel-professores.php');
+                        exit;
+                    } else {
+                        $sql = $pdo->prepare("UPDATE professorimagem set professorimagem = :professorimagem where iduser = :iduser ");
+                        $sql->bindValue(':professorimagem', $path);
+                        $sql->bindValue(':iduser', $id);
+                        $sql->execute();
+                        header('Location: ../../views/gerenciar-professores/painel-professores.php');
+                        exit;
+                    }
                 }
             }
         }

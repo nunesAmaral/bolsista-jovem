@@ -41,6 +41,27 @@
     </div>
     </header>
     <main id="filo-container">
+
+        <?php
+        if (isset($_SESSION['cadProfSucesso'])) {
+            echo $_SESSION['cadProfSucesso'];
+            $_SESSION['cadProfSucesso'] = "";
+        }
+        if (isset($_SESSION['editProfSucesso'])) {
+            echo $_SESSION['editProfSucesso'];
+            $_SESSION['editProfSucesso'] = "";
+        }
+        if (isset($_SESSION['deleteProf'])) {
+            echo $_SESSION['deleteProf'];
+            $_SESSION['deleteProf'] = "";
+        }
+        if (isset($_SESSION['errorDeleteProf'])) {
+            echo $_SESSION['errorDeleteProf'];
+            $_SESSION['errorDeleteProf'] = "";
+        }
+
+        ?>
+
         <table class="table">
             <thead>
                 <tr>
@@ -54,11 +75,24 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($professores as $item) : ?>
-                    <td><img height="70" src="<?= isset($item['img']) ? $item['img'] : '../../assets/userdefault.png'  ?>" </td>
+                <?php foreach ($professores as $item) :
+                    $formacoes = [];
+                    $sql = $pdo->query("SELECT * from professorformacao WHERE iduser = {$item['id']}");
+                    if ($sql->rowCount() > 0) {
+                        $formacoes = $sql->fetchAll(PDO::FETCH_ASSOC);
+                    };
+
+                ?>
+                    <td><img height="70" src="../../assets/imagemprofessor/<?= isset($item['img']) ? "../../assets/imagemprofessor/" . $item['img'] : '../../assets/userdefault.png'  ?>" </td>
                     <td><?php echo $item['nomeprofessor']; ?></td>
-                    <td><?php echo $item['materiaprofessor']; ?></td>
-                    <td><?php echo $item['formacaoprofessor']; ?></td>
+                    <td>
+                        <?php echo $item['materiaprofessor']; ?></p>
+                    </td>
+                    <td>
+                        <?php foreach ($formacoes as $formacao) : ?>
+                            <?= $formacao['descricao'] . " - " . $formacao['instituicaoformacao'] . " - " . $formacao['anoinicio'] . " à " . $formacao['anofim'] ?>
+                        <?php endforeach; ?>
+                    </td>
                     <td><?php echo $item['contatoprofessor']; ?></td>
                     <td><?php echo $item['status']; ?></td>
                     <td>

@@ -11,10 +11,7 @@ if ($sql->rowCount() > 0) {
 
 $professores = [];
 
-$sql = $pdo->query("SELECT *, 
-(select professorimagem from professorimagem where iduser = p.id limit 1) as img
-FROM professores p 
-ORDER BY p.nomeprofessor ASC;");
+$sql = $pdo->query("SELECT *, (select professorimagem from professorimagem where iduser = p.id limit 1) as img FROM professores p ORDER BY p.nomeprofessor ASC;");
 if ($sql->rowCount() > 0) {
     $professores = $sql->fetchAll(PDO::FETCH_ASSOC);
 };

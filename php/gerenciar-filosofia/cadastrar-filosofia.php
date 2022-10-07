@@ -28,7 +28,7 @@
             exit;
         }
     } else {
-        $_SESSION['aviso-dados'] = "Tipos de dados inseridos incorretamente";
+        $_SESSION['aviso-dados'] = "Dados inseridos incorretamente";
         header("Location: ../../views/gerenciar-filosofiacadastro-filosofia.php");
         exit;
     }
